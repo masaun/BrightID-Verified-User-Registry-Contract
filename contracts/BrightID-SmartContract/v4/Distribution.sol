@@ -1,8 +1,8 @@
 pragma solidity ^0.6.3;
 
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/math/SafeMath.sol";
-import "https://github.com/BrightID/BrightID-SmartContract/blob/master/v4/IBrightID.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/math/SafeMath.sol";
+import "./IBrightID.sol";
 
 contract Distribution is Ownable {
     using SafeMath for uint256;
