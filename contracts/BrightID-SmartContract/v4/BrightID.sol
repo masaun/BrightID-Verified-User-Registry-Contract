@@ -1,6 +1,6 @@
 pragma solidity ^0.5.8;
 
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/ownership/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./IBrightID.sol";
 
@@ -19,7 +19,7 @@ contract BrightID is Ownable, IBrightID {
 
     function setVerifierToken(IERC20 _verifierToken) public onlyOwner {
         verifierToken = _verifierToken;
-        VerifierTokenSet(_verifierToken);
+        emit VerifierTokenSet(_verifierToken);
     }
 
     function verify(
