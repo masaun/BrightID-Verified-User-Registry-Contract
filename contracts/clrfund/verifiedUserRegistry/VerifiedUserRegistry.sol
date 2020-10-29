@@ -2,12 +2,13 @@ pragma solidity ^0.5.8;
 pragma experimental ABIEncoderV2;
 
 import "../../BrightID-SmartContract/v4/IBrightID.sol";
+import './IVerifiedUserRegistry.sol';
 
 
 /**
  * @dev - The contract of the registry of verified users.
  */
-contract VerifiedUserRegistry {
+contract VerifiedUserRegistry is IVerifiedUserRegistry {
 
     IBrightID public iBrightID;
 
