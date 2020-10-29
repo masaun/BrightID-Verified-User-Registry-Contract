@@ -1,4 +1,4 @@
-pragma solidity ^0.6.3;
+pragma solidity ^0.5.8;
 
 interface IBrightID {
     event Verified(address indexed addr);
