@@ -19,7 +19,7 @@ contract VerifiedUserRegistry is IVerifiedUserRegistry {
     }
 
     /***
-     * @notice - Connect a context ID and a Bright ID of user
+     * @notice - Connect a context ID (created by application = clf.fund) and a Bright ID of user
      **/
     function verify(
         bytes32 context,
