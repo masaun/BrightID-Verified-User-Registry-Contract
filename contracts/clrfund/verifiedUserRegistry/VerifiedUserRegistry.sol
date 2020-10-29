@@ -16,7 +16,7 @@ contract VerifiedUserRegistry {
     }
 
     function isVerifiedUser(address _user) external view returns (bool) {
-        iBrightID.verifications(_user);
+        uint result = iBrightID.verifications(_user);
     }
 
 }
