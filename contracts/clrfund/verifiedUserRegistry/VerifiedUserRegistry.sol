@@ -11,8 +11,8 @@ contract VerifiedUserRegistry {
 
     IBrightID public iBrightID;
 
-    constructor(address _iBrightID) public {
-        iBrightID = IBrightID(_iBrightID);
+    constructor(IBrightID _iBrightID) public {
+        iBrightID = _iBrightID;
     }
 
     function isVerifiedUser(address _user) external view returns (bool) {
