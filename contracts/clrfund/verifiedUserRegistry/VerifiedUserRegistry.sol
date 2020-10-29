@@ -1,7 +1,7 @@
 pragma solidity ^0.5.8;
 pragma experimental ABIEncoderV2;
 
-import "../../BrightID-SmartContract/v4/IBrightID.sol";
+import "../../BrightID-SmartContract/v4/BrightID.sol";
 import './IVerifiedUserRegistry.sol';
 
 
@@ -10,14 +10,14 @@ import './IVerifiedUserRegistry.sol';
  */
 contract VerifiedUserRegistry is IVerifiedUserRegistry {
 
-    IBrightID public iBrightID;
+    BrightID public brightID;
 
-    constructor(IBrightID _iBrightID) public {
-        iBrightID = _iBrightID;
+    constructor(BrightID _brightID) public {
+        brightID = _brightID;
     }
 
     function isVerifiedUser(address _user) external view returns (bool) {
-        uint result = iBrightID.verifications(_user);
+        uint result = brightID.verifications(_user);
     }
 
 }
