@@ -11,8 +11,10 @@ contract BrightID is Ownable, IBrightID {
     event Verified(address indexed addr);
     event VerifierTokenSet(IERC20 verifierToken);
 
-    mapping(address => uint) override public verifications;
-    mapping(address => address) override public history;
+    mapping(address => uint) public verifications;
+    mapping(address => address) public history;
+    //mapping(address => uint) override public verifications;
+    //mapping(address => address) override public history;
     mapping(address => bool) public isRevoked;
 
     function setVerifierToken(IERC20 _verifierToken) public onlyOwner {
