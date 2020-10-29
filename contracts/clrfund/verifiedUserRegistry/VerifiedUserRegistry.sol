@@ -18,6 +18,7 @@ contract VerifiedUserRegistry is IVerifiedUserRegistry {
 
     function isVerifiedUser(address _user) external view returns (bool) {
         uint result = brightID.verifications(_user);
+        return result;
     }
 
 }
