@@ -35,7 +35,16 @@ contract VerifiedUserRegistry is IVerifiedUserRegistry {
     /***
      * @notice - Check whether user address is verified or not
      **/
-    function verifications(address addr) public view returns (uint) {
+    function isVerifiedUser(address _user) external view returns (bool) {
+        uint result =  _verifications(_user);
+        if (result > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function _verifications(address addr) internal view returns (uint) {
         return brightID.verifications(addr);
     }
 
@@ -43,8 +52,8 @@ contract VerifiedUserRegistry is IVerifiedUserRegistry {
      * @notice - Set a VerifierToken
      * @notice - This action can be executed by only owner address of the BrightID contract
      **/
-    function setVerifierToken(IERC20 _verifierToken) external view returns (bool) {
-        brightID.setVerifierToken(_verifierToken);
-    }
+    // function setVerifierToken(IERC20 _verifierToken) external view returns (bool) {
+    //     brightID.setVerifierToken(_verifierToken);
+    // }
 
 }
