@@ -35,9 +35,8 @@ contract VerifiedUserRegistry is IVerifiedUserRegistry {
     /***
      * @notice - Check whether user address is verified or not
      **/
-    function isVerifiedUser(address _user) external view returns (uint) {
-        uint result = brightID.verifications(_user);
-        return result;
+    function verifications(address addr) public view returns (uint) {
+        return brightID.verifications(addr);
     }
 
     /***
