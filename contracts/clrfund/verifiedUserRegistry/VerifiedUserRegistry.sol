@@ -33,7 +33,8 @@ contract VerifiedUserRegistry is IVerifiedUserRegistry {
     }
 
     /***
-     * @notice - Check whether user address is verified or not
+     * @notice - Check whether a timestamp of a specified user address is verified or not.
+     * @dev - Returned value is a "timestamp" of a specified user address
      **/
     function isVerifiedUser(address _user) external view returns (bool) {
         uint result =  _verifications(_user);
@@ -45,6 +46,7 @@ contract VerifiedUserRegistry is IVerifiedUserRegistry {
     }
 
     function _verifications(address addr) internal view returns (uint) {
+        /// [Todo]: Implement more logic next time.
         return brightID.verifications(addr);
     }
 

@@ -45,4 +45,21 @@ contract BrightID is Ownable, IBrightID {
         emit Verified(addrs[0]);
     }
 
+    /***
+     * @notice - Check whether a timestamp of a specified user address is verified or not.
+     * @dev - Returned value is a "timestamp" of a specified user address
+     **/
+    function checkVerifications(address addr) external view returns (uint) {
+        return verifications[addr];
+    }
+
+    /***
+     * @notice - Get a history of a specified user address.
+     * @dev - Returned value is a "address" of a specified user address
+     **/
+    function getHistory(address addr) external view returns (address) {
+        return history[addr];
+    }
+
+
 }
