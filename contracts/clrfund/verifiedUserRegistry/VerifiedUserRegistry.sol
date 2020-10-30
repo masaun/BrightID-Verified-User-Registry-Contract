@@ -37,7 +37,7 @@ contract VerifiedUserRegistry is IVerifiedUserRegistry {
      * @dev - Returned value is a "timestamp" of a specified user address
      **/
     function isVerifiedUser(address _user) external view returns (bool) {
-        uint result =  _verifications(_user);
+        uint result =  checkVerifications(_user);
         if (result > 0) {
             return true;
         } else {
@@ -45,10 +45,24 @@ contract VerifiedUserRegistry is IVerifiedUserRegistry {
         }
     }
 
-    function _verifications(address addr) internal view returns (uint) {
+    /***
+     * @notice - Check whether a timestamp of a specified user address is verified or not.
+     * @dev - Returned value is a "timestamp" of a specified user address
+     **/
+    function checkVerifications(address addr) internal view returns (uint timestamp) {
         /// [Todo]: Implement more logic next time.
-        return brightID.verifications(addr);
+        return brightID.checkVerifications(addr);
     }
+
+    /***
+     * @notice - Get a history of a specified user address.
+     * @dev - Returned value is a "address" of a specified user address
+     **/
+    function getHistory(address addr) external view returns (address) {
+        /// [Todo]: Implement more logic next time.
+        return brightID.getHistory(addr);
+    }
+
 
     /***
      * @notice - Set a VerifierToken
