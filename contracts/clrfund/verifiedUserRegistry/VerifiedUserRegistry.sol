@@ -38,7 +38,7 @@ contract VerifiedUserRegistry is IVerifiedUserRegistry {
      **/
     function isVerifiedUser(address _user) external view returns (bool) {
         uint timestamp =  checkVerifications(_user);
-        require(timestamp < now, "newer verification registered before");
+        require(timestamp < now, "This verification has not been registered yet");
     }
 
     /***
