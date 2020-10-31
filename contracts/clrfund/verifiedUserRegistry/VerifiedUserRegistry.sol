@@ -39,6 +39,11 @@ contract VerifiedUserRegistry is IVerifiedUserRegistry {
     function isVerifiedUser(address _user) external view returns (bool) {
         uint timestamp =  checkVerifications(_user);
         require(timestamp < now, "This verification has not been registered yet");
+
+        address history = getHistory(_user);
+        require (history != address(0), "There is no history before");
+        
+        return true;
     }
 
     /***
@@ -54,7 +59,7 @@ contract VerifiedUserRegistry is IVerifiedUserRegistry {
      * @notice - Get a history of a specified user address.
      * @dev - Returned value is a "address" of a specified user address
      **/
-    function getHistory(address addr) external view returns (address) {
+    function getHistory(address addr) internal view returns (address history) {
         /// [Todo]: Implement more logic next time.
         return brightID.getHistory(addr);
     }
