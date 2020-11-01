@@ -37,7 +37,7 @@ contract VerifiedUserRegistry is IVerifiedUserRegistry {
      * @dev - Returned value is a "timestamp" of a specified user address
      **/
     function isVerifiedUser(address _user) external view returns (bool _verified) {
-        uint timestamp =  checkVerifications(_user);
+        uint timestamp = checkVerifications(_user);
         require(timestamp < now, "This verification has not been registered yet");
 
         address history = getHistory(_user);
