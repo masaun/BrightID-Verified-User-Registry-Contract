@@ -36,19 +36,35 @@ contract VerifiedUserRegistry is IVerifiedUserRegistry {
      * @notice - Check whether a timestamp of a specified user address is verified or not.
      * @dev - Returned value is a "timestamp" of a specified user address
      **/
-    function isVerifiedUser(address _user) external view returns (bool) {
-        uint result =  _verifications(_user);
-        if (result > 0) {
-            return true;
-        } else {
-            return false;
-        }
+    function isVerifiedUser(address _user) external view returns (bool _verified) {
+        uint timestamp = checkVerifications(_user);
+        require(timestamp < now, "This verification has not been registered yet");
+
+        address history = getHistory(_user);
+        require (history != address(0), "There is no history before");
+        
+        bool verified = true;
+        return verified;
     }
 
-    function _verifications(address addr) internal view returns (uint) {
+    /***
+     * @notice - Check whether a timestamp of a specified user address is verified or not.
+     * @dev - Returned value is a "timestamp" of a specified user address
+     **/
+    function checkVerifications(address addr) internal view returns (uint timestamp) {
         /// [Todo]: Implement more logic next time.
-        return brightID.verifications(addr);
+        return brightID.checkVerifications(addr);
     }
+
+    /***
+     * @notice - Get a history of a specified user address.
+     * @dev - Returned value is a "address" of a specified user address
+     **/
+    function getHistory(address addr) internal view returns (address history) {
+        /// [Todo]: Implement more logic next time.
+        return brightID.getHistory(addr);
+    }
+
 
     /***
      * @notice - Set a VerifierToken
