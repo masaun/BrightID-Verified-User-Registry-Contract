@@ -14,6 +14,7 @@
     "compile:kovan": "truffle compile --reset --network kovan",
     "migrate:kovan": "truffle migrate --reset --network kovan",
     "migrate:ropsten": "truffle migrate --reset --network ropsten",
+    "compile:local": "truffle compile --reset --network local",
     "migrate:local": "truffle migrate --reset --network local"
   },
   "author": "masaun",
