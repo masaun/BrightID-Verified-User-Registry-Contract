@@ -3,7 +3,7 @@
 ***
 ## 【Introduction of BrightID Verified User Registry Contract】
 - BrightID Verified User Registry contract for the clf.fund
-  - a VerifiedUserRegistry contract that ensures only BrightID verified users can sign as contributors to each round of clr.fund.
+  - a VerifiedUserRegistry contract that ensures only BrightID verified users can sign as contributors to each round of clr.fund.  
     https://github.com/masaun/BrightID-Verified-User-Registry-Contract/blob/master/contracts/clrfund/verifiedUserRegistry/VerifiedUserRegistry.sol
 
 
